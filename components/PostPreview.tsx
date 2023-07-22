@@ -1,14 +1,15 @@
 import { PostMetedata } from "./PostMetadata";
 import Link from 'next/link';
 
-const PostPreview =(props:PostMetedata)=>{
+const PostPreview = (props: PostMetedata) => {
+    const hrefLink = '/posts/'+props.slug;
     return (
-        <div>
-            <Link href={'/posts/'+props.slug}>
-                <h2>{props.title}</h2>  
+        <div className="border border-slate-300 p-4 rounded-md shadow-sm bg-white">
+            <p className="text-slate-400">{props.date}</p>
+            <Link href={hrefLink}>
+                <h2 className="font-bold mb-4 text-violet-600 hover:underline">{props.title}</h2>  
             </Link>
-            <p>{props.subtitle}</p>
-            <p>{props.date}</p>
+            <p className="text-slate-400 text-sm">{props.subtitle}</p>
         </div>
     );
 };
